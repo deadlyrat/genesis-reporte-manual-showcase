@@ -5,11 +5,12 @@
 # Genesis: Sistema de Reportes
 
 ![Privado](https://img.shields.io/badge/C%C3%B3digo-Privado%20%C2%B7%20Proyecto%20Cliente-red?style=flat)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
-![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat&logo=microsoftsqlserver&logoColor=white)
+![Apache](https://img.shields.io/badge/Apache-D22128?style=flat&logo=apache&logoColor=white)
 
 **Sistema web para la gestión y generación de reportes de seguros de Genesis Asesores de Seguros, con acceso por roles, registro de pólizas y exportación de informes.**
 
@@ -97,10 +98,10 @@ Genesis es un sistema web de acceso restringido que permite a los asesores regis
 
 ```mermaid
 graph LR
-    USER["Navegador<br/>React"]
-    PROXY["Nginx<br/>VPS"]
-    API["Backend<br/>Python · FastAPI"]
-    DB[("PostgreSQL<br/>pólizas · usuarios")]
+    USER["Navegador<br/>React · TypeScript"]
+    PROXY["Apache 2.4<br/>proxy inverso · VPS"]
+    API["Backend<br/>Node.js · Express · PM2"]
+    DB[("SQL Server<br/>Azure")]
 
     USER -->|"HTTPS"| PROXY
     PROXY -->|"Solicitudes a la API"| API
@@ -115,10 +116,11 @@ El acceso se controla por roles (asesor, supervisor y administrador), de modo qu
 
 | Capa | Tecnología |
 |------|-----------|
-| Backend | Python · FastAPI |
-| Frontend | React |
-| Base de datos | PostgreSQL |
-| Despliegue | VPS · Nginx |
+| Frontend | React 19 · TypeScript · Vite · Tailwind CSS 4 · motion · lucide-react |
+| Backend | Node.js · Express 4 · express-session (cookies HTTP-only) · bcryptjs · helmet · express-rate-limit |
+| Base de datos | SQL Server en Azure (driver mssql, sin ORM, scripts T-SQL) |
+| Pruebas | Vitest + Testing Library (frontend) · Jest + supertest (backend) |
+| Despliegue | PM2 en VPS Linux · proxy inverso Apache 2.4 |
 
 ---
 
@@ -126,10 +128,10 @@ El acceso se controla por roles (asesor, supervisor y administrador), de modo qu
 
 > **Aviso:** el código es privado y propietario. Estos pasos son solo orientativos para colaboradores autorizados con acceso al repositorio.
 
-1. Instala Python y Node.js.
+1. Instala Node.js.
 2. Instala las dependencias del backend y del frontend.
-3. Configura tus propias variables de entorno (conexión a PostgreSQL y credenciales).
-4. Inicia el backend FastAPI y el entorno de desarrollo de React.
+3. Configura tus propias variables de entorno (conexión a SQL Server y credenciales).
+4. Inicia el backend Express y el entorno de desarrollo de Vite (React).
 
 ---
 
